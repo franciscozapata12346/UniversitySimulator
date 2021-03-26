@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "zcoypEtVsqeowOidHWHxfFQIlDlBc9QqzwVnjTF/WiXlA5DvN/OPOLzEhrRvSdIOxDG/cTgHVOYDwzRruP0sHQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Desarrollo\\source\\repos\\UniversitySimulator\\UniversitySimulator\\UniversitySimulator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Desarrollo\\.nuget\\packages\\bootstrap\\4.6.0\\bootstrap.4.6.0.nupkg.sha512",
+    "C:\\Users\\Desarrollo\\.nuget\\packages\\jquery\\3.0.0\\jquery.3.0.0.nupkg.sha512",
+    "C:\\Users\\Desarrollo\\.nuget\\packages\\popper.js\\1.16.1\\popper.js.1.16.1.nupkg.sha512"
+  ],
+  "logs": []
+}
