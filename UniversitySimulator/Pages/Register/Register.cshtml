@@ -1,0 +1,40 @@
+﻿@page
+@model UniversitySimulator.Pages.RegisterModel
+@{
+}
+
+
+<body class="text-center">
+
+    
+    <form class="form-signin" method="post" action="">
+        <img class="mb-4" src="~/images/uslogo.jpg" alt="">
+        <h1 class="h3 mb-3 font-weight-normal">Registrarse</h1>
+        <input asp-for="usuarioService.usuario.Nombre" id="inputName" type="text" placeholder="Nombre" 
+               class="form-control" maxlength="20" />
+        <span asp-validation-for="usuarioService.usuario.Nombre" class="text-danger"></span>
+        <input asp-for="usuarioService.usuario.Apellido" id="inputLastName" type="text" placeholder="Apellido" 
+               class="form-control" maxlength="20" />
+        <span asp-validation-for="usuarioService.usuario.Apellido" class="text-danger"></span>
+        <input asp-for="usuarioService.usuario.DNI" id="inputDni" type="number" placeholder="D.N.I." 
+               class="form-control" maxlength="8" />
+        <span asp-validation-for="usuarioService.usuario.DNI" class="text-danger"></span>
+        <input asp-for="usuarioService.usuario.Email" id="inputEmail" type="email" placeholder="Email" 
+               class="form-control" maxlength="40" />
+        <span asp-validation-for="usuarioService.usuario.Email" class="text-danger"></span>
+        <input asp-for="usuarioService.usuario.Password" id="inputDni" type="password" placeholder="Contraseña" 
+               class="form-control" maxlength="50" />
+        <span asp-validation-for="usuarioService.usuario.Password" class="text-danger"></span>      
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Registrarse</button>
+        <a href="../Home/Index">Ya tienes una cuenta? Inicia sesión aquí</a>
+
+    </form>
+</body>
+
+
+

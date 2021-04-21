@@ -1,0 +1,39 @@
+﻿@page
+@model UniversitySimulator.Pages.Register.MostrarDatosModel
+@{
+
+}
+
+<body class="text-center">
+
+
+    <form class="form-signin" method="post" action="">
+        <img class="mb-4" src="~/images/uslogo.jpg" alt="">
+        <h1 class="h3 mb-3 font-weight-normal">Registrarse</h1>
+        
+        <label class="col-5">Nombre:</label>
+        <span class="">@ViewData["UserName"]</span>
+
+        <label class="col-5">Nombre:</label>
+        <span class="">@ViewData["UserLastName"]</span>
+
+        <label class="col-5">Nombre:</label>
+        <span class="">@ViewData["UserDni"]</span>
+
+        <label class="col-5">Nombre:</label>
+        <span class="">@ViewData["UserLegajo"]</span>
+
+        <label class="col-5">Nombre:</label>
+        <span class="">@ViewData["UserEmail"]</span>
+
+        
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Registrarse</button>
+        <a href="../Home/Index">Ya tienes una cuenta? Inicia sesión aquí</a>
+
+    </form>
+</body>
