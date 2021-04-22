@@ -10,13 +10,13 @@ namespace UniversitySimulator.Pages.Register
 {
     public class MostrarDatosModel : PageModel
     {
-        public void OnGet(Usuarios usuarios)
+        public void OnGet(Usuario usuarios)
         {
             ViewData["UserName"] = usuarios.Nombre;
             ViewData["UserLastName"] = usuarios.Apellido;
             ViewData["UserDni"] = usuarios.DNI;
             ViewData["UserEmail"] = usuarios.Email;
-            ViewData["UserLegajo"] = Usuarios.Legajo;
+            ViewData["UserLegajo"] = Usuario.Legajo;
         }
     }
 }

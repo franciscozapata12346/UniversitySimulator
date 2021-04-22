@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UniversitySimulator.Models
 {
-    public class Usuarios
+    public class Usuario
     {
         [Required]
         public string Nombre { get; set; }

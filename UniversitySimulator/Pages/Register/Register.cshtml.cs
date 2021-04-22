@@ -6,17 +6,34 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using UniversitySimulator.Services;
 using UniversitySimulator.Data;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
+using System.Web;
+using System.Collections;
 
 namespace UniversitySimulator.Pages
 {
     public class RegisterModel : PageModel
     {
-        [BindProperty]
-        public UsuarioService usuarioService { get; set; }
 
-        public RegisterModel(ApplicationDbContext _context) 
+        public UsuarioService usuarioService { get; set; }
+        [Required]
+        public string NombreUsuario { get; set; }
+        [Required]
+        public string ApellidoUsuario { get; set; }
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        public string EmailUsuario { get; set; }
+        [Required]
+        public string DNIUsuario { get; set; }
+        [Required]
+        public string PasswordUsuario { get; set; }
+        [BindProperty]
+        public bool flag { get; set; }
+
+        public RegisterModel()
         {
-        
+            usuarioService = new UsuarioService();
         }
 
         public void OnGet()
@@ -26,12 +43,23 @@ namespace UniversitySimulator.Pages
 
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid){
+            if (!ModelState.IsValid)
+            {
                 return Page();
             }
-            usuarioService.CreateUser();
+            if (usuarioService.CreateUser(NombreUsuario, ApellidoUsuario, EmailUsuario, DNIUsuario, PasswordUsuario))
+            {
+                flag = true;
+            }
+
+
 
             return Redirect("MostrarDatos");
         }
+
+            
     }
 }
+
+
+

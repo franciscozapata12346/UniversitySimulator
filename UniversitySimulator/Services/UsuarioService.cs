@@ -9,20 +9,22 @@ namespace UniversitySimulator.Services
 {
     public class UsuarioService
     {
-        public Usuarios usuario { get; set; }
+        public Usuario usuario { get; set; }
         public UsuarioData usuarioData { get; set; }
 
 
-        public UsuarioService(ApplicationDbContext _context) 
+        public UsuarioService() 
         {
-            usuario = new Usuarios();
-            usuarioData = new UsuarioData(_context);            
+            usuario = new Usuario();
+            usuarioData = new UsuarioData();            
         }
 
-        public void CreateUser() 
+        public bool CreateUser(string nombre, string apellido, string dni, string pass, string email) 
         {
-            Usuarios.Legajo++;
-            usuarioData.Post(usuario);
+            int legajo = Usuario.Legajo++;
+            return usuarioData.CreateUser(nombre, apellido, dni, pass, email, legajo);
+            
+
         }
     }
 }

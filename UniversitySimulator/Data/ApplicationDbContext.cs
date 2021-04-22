@@ -1,7 +1,9 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,10 +11,23 @@ using UniversitySimulator.Models;
 
 namespace UniversitySimulator.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext
     {
-        private static SqlConnection _connection;
-        private static SqlTransaction _transaction;
+        public static SqlConnection _connection;
+        public static SqlTransaction _transaction;
+
+        public ApplicationDbContext()
+        {
+            var configuation = GetConfiguration();
+            _connection = new SqlConnection(configuation.GetSection("Data").GetSection("ConnectionStrings").Value);
+        }
+
+        public IConfigurationRoot GetConfiguration()
+        {
+            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+            return builder.Build();
+        }
+
 
         //protected static string ConnectionString
         //{
