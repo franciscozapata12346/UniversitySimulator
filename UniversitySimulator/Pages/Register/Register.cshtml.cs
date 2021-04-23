@@ -10,6 +10,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Web;
 using System.Collections;
+using UniversitySimulator.Models;
+using UniversitySimulator.Pages.Register;
 
 namespace UniversitySimulator.Pages
 {
@@ -17,15 +19,20 @@ namespace UniversitySimulator.Pages
     {
 
         public UsuarioService usuarioService { get; set; }
+        [BindProperty]
         [Required]
         public string NombreUsuario { get; set; }
+        [BindProperty]
         [Required]
         public string ApellidoUsuario { get; set; }
+        [BindProperty]
         [Required]
         [DataType(DataType.EmailAddress)]
         public string EmailUsuario { get; set; }
+        [BindProperty]
         [Required]
         public string DNIUsuario { get; set; }
+        [BindProperty]
         [Required]
         public string PasswordUsuario { get; set; }
         [BindProperty]
@@ -33,31 +40,33 @@ namespace UniversitySimulator.Pages
 
         public RegisterModel()
         {
-            usuarioService = new UsuarioService();
+            
         }
 
         public void OnGet()
         {
-
+            //
         }
 
         public IActionResult OnPost()
         {
+            usuarioService = new UsuarioService();
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            if (usuarioService.CreateUser(NombreUsuario, ApellidoUsuario, EmailUsuario, DNIUsuario, PasswordUsuario))
+            if (usuarioService.CreateUser(NombreUsuario, ApellidoUsuario, DNIUsuario, PasswordUsuario, EmailUsuario))
             {
-                flag = true;
+                ViewData["flag"] = true;
+
+
             }
-
-
-
+            MostrarDatosModel mostrarDatos = new MostrarDatosModel();
+            mostrarDatos.CargarForm(NombreUsuario, ApellidoUsuario, DNIUsuario, PasswordUsuario, EmailUsuario);
             return Redirect("MostrarDatos");
         }
 
-            
+
     }
 }
 

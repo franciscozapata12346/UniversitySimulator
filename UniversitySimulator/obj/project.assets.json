@@ -1190,6 +1190,9 @@
           }
         }
       },
+      "SweetAlert.Base/1.1.3": {
+        "type": "package"
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -4602,6 +4605,20 @@
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.nuspec",
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
+      ]
+    },
+    "SweetAlert.Base/1.1.3": {
+      "sha512": "JTlMp9T4T4afD2oXbINi+uWcb57Y0vzf1Hil4Ynop0E6WJdTG2AMd/mwTgbe7UoQ65t0kNnc2Il+CeV4oOAWfA==",
+      "type": "package",
+      "path": "sweetalert.base/1.1.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/Scripts/sweetalert-dev.js",
+        "content/Scripts/sweetalert.min.js",
+        "content/Styles/sweetalert.css",
+        "sweetalert.base.1.1.3.nupkg.sha512",
+        "sweetalert.base.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -8891,6 +8908,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.4",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.4",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5",
+      "SweetAlert.Base >= 1.1.3",
       "bootstrap >= 4.6.0"
     ]
   },
@@ -8961,6 +8979,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[3.1.5, )"
+          },
+          "SweetAlert.Base": {
+            "target": "Package",
+            "version": "[1.1.3, )"
           },
           "bootstrap": {
             "target": "Package",

@@ -190,3 +190,8 @@ E:\Github\UniversitySimulator\UniversitySimulator\bin\Debug\netcoreapp3.1\runtim
 E:\Github\UniversitySimulator\UniversitySimulator\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 E:\Github\UniversitySimulator\UniversitySimulator\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 E:\Github\UniversitySimulator\UniversitySimulator\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\UniversitySimulator.RazorComponent.input.cache
+E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Register\Prueba.razor.g.cs
+E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\UniversitySimulator.RazorComponent.output.cache
+E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\RazorDeclaration\UniversitySimulator.dll
+E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\Razor\Pages\Register\Prueba.razor.g.cs

@@ -1,10 +1,6 @@
-﻿@page
-@model UniversitySimulator.Pages.RegisterModel
-@{
-}
-
-
+﻿
 <body class="text-center">
+
 
     <form class="form-signin" method="post" action="">
         <img class="mb-4" src="~/images/uslogo.jpg" alt="">
@@ -29,20 +25,44 @@
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <button id="btnRegister" class="btn btn-lg btn-primary btn-block" type="submit"
-                onclick="CrearUsuario()">
-            Registrarse
-        </button>
-        <a href="../Home/Index">Ya tienes una cuenta? Inicia sesión aquí</a>
-
-
-
-
-
-
+        <button id="btnRegister" class="btn btn-lg btn-primary btn-block" type="submit" >Registrarse</button>
+        <a href="../Home/Index">Ya tienes una cuenta? Inicia sesión aquí</a>         
     </form>
 </body>
 
 
 
+<!-- Modal -->
+<div class="modal fade" id="modalForm" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Contact Form</h4>
+            </div>
 
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <p class="statusMsg"></p>
+                <form role="form">
+                </form>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary submitBtn" onclick="submitContactForm()">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    RegisterModel registerModel = new RegisterModel();
+
+
+}

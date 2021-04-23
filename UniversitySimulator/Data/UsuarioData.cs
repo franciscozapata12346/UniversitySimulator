@@ -9,14 +9,26 @@ using Microsoft.Data.SqlClient;
 using Microsoft.Data.Sql;
 using Microsoft.Data.SqlTypes;
 using System.Data;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace UniversitySimulator.Data
 {
-    public class UsuarioData : ApplicationDbContext
+    public class UsuarioData
     {
+        public static SqlConnection _connection;
+
+        public IConfigurationRoot GetConfiguration()
+        {
+            var builder = new ConfigurationBuilder().SetBasePath(Directory.
+                GetCurrentDirectory()).AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+            return builder.Build();
+        }
         public UsuarioData()
         {
-
+            //var configuation = GetConfiguration();
+            //configuation.GetSection("Data").GetSection("ConnectionStrings").Value
+            _connection = new SqlConnection("Data Source=DESKTOP-7VGDV0F;Initial Catalog=db_university_simulator;Integrated Security=True");
         }
 
         public static string Base64Encode(string word)
@@ -36,7 +48,7 @@ namespace UniversitySimulator.Data
             pass = Base64Encode(pass);
             try
             {
-                BeginTransaction();
+               // BeginTransaction();
                 SqlCommand cmd = new SqlCommand("INSERT INTO Usuarios(legajo, dni, nombre, apellido, email, pass, id_rol)" +
                 " VALUES (@legajo, @dni, @nombre, @apellido, @email, @pass, @id_rol)");
                 cmd.Parameters.AddWithValue("@legajo", legajo);
@@ -47,20 +59,27 @@ namespace UniversitySimulator.Data
                 cmd.Parameters.AddWithValue("@pass", pass);
                 cmd.Parameters.AddWithValue("@id_rol", 2);
                 cmd.CommandType = CommandType.Text;
-                cmd.ExecuteReader();
-                using (SqlDataReader dr = cmd.ExecuteReader())
+                _connection.Open();
+                cmd.Connection = _connection;
+                SqlDataReader dr1 =  cmd.ExecuteReader();
+                dr1.Close();
+
+                SqlCommand cm2 = new SqlCommand("SELECT dni FROM Usuarios " +
+                    " WHERE dni = @dni ");
+                cm2.Connection = _connection;
+                cm2.Parameters.AddWithValue("@dni", dni);
+                cm2.CommandType = CommandType.Text;
+                SqlDataReader dr2 = cm2.ExecuteReader();
+                if (dr2.HasRows) 
                 {
-                    if (dr.Read())
-                    {
-                        usuarioCreado = true;
-                    }
+                    usuarioCreado = true;
                 }
 
-                CommitTransaction();
+                //CommitTransaction();
             }
             catch (Exception ex)
             {
-                RollbackTransaction();
+                //RollbackTransaction();
                 throw ex;
             }
             finally 
