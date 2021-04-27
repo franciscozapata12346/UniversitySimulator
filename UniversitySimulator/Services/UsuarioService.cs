@@ -19,11 +19,19 @@ namespace UniversitySimulator.Services
             usuarioData = new UsuarioData();            
         }
 
-        public bool CreateUser(string nombre, string apellido, string dni, string pass, string email) 
+        public bool CreateUser(string nombre, string apellido, string dni, string pass, string email, int legajo) 
         {
-            int legajo = Usuario.Legajo++;
+
             return usuarioData.CreateUser(nombre, apellido, dni, pass, email, legajo);
             
+
+        }
+
+        public bool ValidateUser(string dni, string email)
+        {
+
+            return usuarioData.ValidateUser(dni, email);
+
 
         }
     }

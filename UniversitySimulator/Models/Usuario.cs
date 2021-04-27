@@ -15,8 +15,8 @@ namespace UniversitySimulator.Models
         [Required]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        
-        public static int Legajo { get; set; }
+        public int Legajo { get; set; }
+        public static int LegajoSeed { get; set; }
         [Required]
         public string DNI { get; set; }
         [Required]

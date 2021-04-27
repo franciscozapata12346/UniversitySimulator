@@ -4,38 +4,53 @@
 
 }
 
-<body class="text-center">
+<body class="text-center" onload="CrearUsuario()">
     <script>
-
-
         function CrearUsuario() {
-            if (Boolean.Parse(Html.ViewData["flag"].ToString())) {
-                swal("Usuario registrado con exito");
-            }
-
+            //if (Boolean.Parse(Html.ViewData["flag"].ToString())) {
+            //    swal("Usuario registrado con exito");
+            //}
+            swal("Usuario registrado con exito");
         }
-
     </script>
 
     <form class="form-signin" method="post" action="">
         <img class="mb-4" src="~/images/uslogo.jpg" alt="">
-        <h1 class="h3 mb-3 font-weight-normal">Registrarse</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Sus datos</h1>
 
-        <label class="col-5">Nombre:</label>
-        <span class="">@ViewData["UserName"]</span>
+        <label id="lblNombre" class="col-4">Nombre: </label>
+        <label class="col-7">@ViewData["NombreUsuario"]</label>
+
+        <label id="lblApellido" class="col-4">Apellido: </label>
+        <label class="col-7">@ViewData["ApellidoUsuario"]</label>
+
+        <label id="lblDni" class="col-4">Dni: </label>
+        <label class="col-7">@ViewData["DNIUsuario"]</label>
+
+        <label class="col-12 text-danger">IMPORTANTE!: </label>
+        <label id="lblLegajo" class="col-4 text-danger">Legajo: </label>
+        <label class="col-7 text-danger">@ViewData["LegajoUsuario"]</label>
+
+        <label id="lblEmail" class="col-4">Email: </label>
+        <label class="col-7">@ViewData["EmailUsuario"]</label>
+
+        <a href="../Home/Principal" class="col-12">Ir a la pagina principal</a>
+
+        @*<label class="col-5">Nombre:</label>
+        <span class="">@ViewData["NombreUsuario"]</span>
 
         <label class="col-5">Apellido:</label>
-        <span class="">@ViewData["UserLastName"]</span>
+        <span class="">@ViewData["ApellidoUsuario"]</span>
 
         <label class="col-5">Dni:</label>
-        <span class="">@ViewData["UserDni"]</span>
+        <span class="">@ViewData["DNIUsuario"]</span>
 
         <label class="col-5">Legajo:</label>
-        <span class="">@ViewData["UserLegajo"]</span>
+        <span class="">@ViewData["LegajoUsuario"]</span>
 
         <label class="col-5">Email:</label>
-        <span class="">@ViewData["UserEmail"]</span>
-        <a href="../Home/Principal">Ir a la pagina principal</a>
+        <span class="">@ViewData["EmailUsuario"]</span>
+        <a href="../Home/Principal">Ir a la pagina principal</a>*@
 
     </form>
 </body>

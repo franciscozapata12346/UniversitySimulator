@@ -37,6 +37,9 @@ namespace UniversitySimulator.Pages
         public string PasswordUsuario { get; set; }
         [BindProperty]
         public bool flag { get; set; }
+        [BindProperty]
+        public string ErrorServidor { get; set; }
+
 
         public RegisterModel()
         {
@@ -45,25 +48,50 @@ namespace UniversitySimulator.Pages
 
         public void OnGet()
         {
-            //
+
         }
 
         public IActionResult OnPost()
         {
             usuarioService = new UsuarioService();
+            Usuario usuario = new Usuario();
+            
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            if (usuarioService.CreateUser(NombreUsuario, ApellidoUsuario, DNIUsuario, PasswordUsuario, EmailUsuario))
+
+            if (usuarioService.ValidateUser(DNIUsuario, EmailUsuario)) 
             {
-                ViewData["flag"] = true;
+                usuario.Legajo = Usuario.LegajoSeed++;
+                if (usuarioService.CreateUser(NombreUsuario, ApellidoUsuario, DNIUsuario, PasswordUsuario,
+                EmailUsuario, usuario.Legajo))
+                {
+                    ViewData["flag"] = true;
+                    usuario.Nombre = NombreUsuario;
+                    usuario.Apellido = ApellidoUsuario;
+                    usuario.DNI = DNIUsuario;
+                    usuario.Email = EmailUsuario;
 
 
+                    return RedirectToPage("MostrarDatos", usuario);
+                }
+                else
+                {
+                    Usuario.LegajoSeed--;
+                    ViewData["flag"] = false;
+                    return Page();
+                }
             }
-            MostrarDatosModel mostrarDatos = new MostrarDatosModel();
-            mostrarDatos.CargarForm(NombreUsuario, ApellidoUsuario, DNIUsuario, PasswordUsuario, EmailUsuario);
-            return Redirect("MostrarDatos");
+            else
+            {
+                ErrorServidor = "Ya existe un usuario con este DNI o Email";
+                return Page();
+            }
+
+
+            
+            
         }
 
 

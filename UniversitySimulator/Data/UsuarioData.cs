@@ -31,6 +31,37 @@ namespace UniversitySimulator.Data
             _connection = new SqlConnection("Data Source=DESKTOP-7VGDV0F;Initial Catalog=db_university_simulator;Integrated Security=True");
         }
 
+        public bool ValidateUser(string dni, string email)
+        {
+            bool rtado = true;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Usuarios " +
+                    " WHERE dni=@dni OR email=@email");                
+                cmd.Parameters.AddWithValue("@dni", dni);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.CommandType = CommandType.Text;
+                _connection.Open();
+                cmd.Connection = _connection;
+                SqlDataReader dr1 = cmd.ExecuteReader();
+                if (dr1.HasRows)
+                {
+                    rtado = false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (_connection.State == System.Data.ConnectionState.Open)
+                    _connection.Close();
+            }
+            return rtado;
+        }
+
         public static string Base64Encode(string word)
         {
             byte[] byt = System.Text.Encoding.UTF8.GetBytes(word);
@@ -48,7 +79,6 @@ namespace UniversitySimulator.Data
             pass = Base64Encode(pass);
             try
             {
-               // BeginTransaction();
                 SqlCommand cmd = new SqlCommand("INSERT INTO Usuarios(legajo, dni, nombre, apellido, email, pass, id_rol)" +
                 " VALUES (@legajo, @dni, @nombre, @apellido, @email, @pass, @id_rol)");
                 cmd.Parameters.AddWithValue("@legajo", legajo);
@@ -74,12 +104,9 @@ namespace UniversitySimulator.Data
                 {
                     usuarioCreado = true;
                 }
-
-                //CommitTransaction();
             }
             catch (Exception ex)
             {
-                //RollbackTransaction();
                 throw ex;
             }
             finally 

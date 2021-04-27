@@ -5,8 +5,19 @@
 
 
 <body class="text-center">
+    @if (Html.ViewData["flag"] != null)
+    {
+        @if (Boolean.Parse(Html.ViewData["flag"].ToString()) == false)
+        {
+            <script>
+                swal("Error al registrar el usuario");
+            </script>
+        }
+
+    }
 
     <form class="form-signin" method="post" action="">
+
         <img class="mb-4" src="~/images/uslogo.jpg" alt="">
         <h1 class="h3 mb-3 font-weight-normal">Registrarse</h1>
         <input asp-for="NombreUsuario" id="inputName" type="text" placeholder="Nombre"
@@ -24,13 +35,10 @@
         <input asp-for="PasswordUsuario" id="inputDni" type="password" placeholder="Contraseña"
                class="form-control" maxlength="50" />
         <span asp-validation-for="PasswordUsuario" class="text-danger"></span>
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-        </div>
-        <button id="btnRegister" class="btn btn-lg btn-primary btn-block" type="submit"
-                onclick="CrearUsuario()">
+
+        <span class="text-danger">@Html.DisplayFor(m => m.ErrorServidor)</span>
+
+        <button id="btnRegister" class="btn btn-lg btn-primary btn-block" type="submit">
             Registrarse
         </button>
         <a href="../Home/Index">Ya tienes una cuenta? Inicia sesión aquí</a>
