@@ -17,15 +17,16 @@
 </head>
 <body class="text-center">
 
-    <form class="form-signin">
+    <form class="form-signin" method="post">
         <img class="mb-4" src="~/images/uslogo.jpg" alt="">
-        <h1 class="h3 mb-3 font-weight-normal">Iniciar Sesion</h1>        
-        <input asp-for="usuarioService.usuario.Email" id="inputEmail" type="email" placeholder="Email"
+        <h1 class="h3 mb-3 font-weight-normal">Iniciar Sesion</h1>
+        <input asp-for="Email" id="inputEmail" type="email" placeholder="Email"
                class="form-control" maxlength="40" />
-        <span asp-validation-for="usuarioService.usuario.Email" class="text-danger"></span>
-        <input asp-for="usuarioService.usuario.Password" id="inputDni" type="text" placeholder="D.N.I."
+        <span asp-validation-for="Email" class="text-danger"></span>
+        <input asp-for="Password" id="inputPass" type="password" placeholder="Contraseña"
                class="form-control" maxlength="50" />
-        <span asp-validation-for="usuarioService.usuario.Password" class="text-danger"></span>
+        <span asp-validation-for="Password" class="text-danger"></span>
+        <span class="text-danger">@Html.DisplayFor(m => m.ErrorServidor)</span>
         <div class="checkbox mb-3">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me

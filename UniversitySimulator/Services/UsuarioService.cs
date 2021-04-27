@@ -34,5 +34,10 @@ namespace UniversitySimulator.Services
 
 
         }
+
+        public Usuario ConsultarUsuario(string email, string password)
+        {
+            return usuarioData.ConsultarUsuario(email, password);
+        }
     }
 }

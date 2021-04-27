@@ -190,3 +190,6 @@ E:\Github\UniversitySimulator\UniversitySimulator\bin\Debug\netcoreapp3.1\runtim
 E:\Github\UniversitySimulator\UniversitySimulator\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 E:\Github\UniversitySimulator\UniversitySimulator\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 E:\Github\UniversitySimulator\UniversitySimulator\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\Razor\Pages\Home\Principal.cshtml.g.cs
+E:\Github\UniversitySimulator\UniversitySimulator\bin\Debug\netcoreapp3.1\Renci.SshNet.dll
+E:\Github\UniversitySimulator\UniversitySimulator\bin\Debug\netcoreapp3.1\SshNet.Security.Cryptography.dll

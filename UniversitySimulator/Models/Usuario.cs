@@ -8,18 +8,17 @@ namespace UniversitySimulator.Models
 {
     public class Usuario
     {
-        [Required]
+
         public string Nombre { get; set; }
-        [Required]
+
         public string Apellido { get; set; }
-        [Required]
-        [DataType(DataType.EmailAddress)]
+
         public string Email { get; set; }
         public int Legajo { get; set; }
         public static int LegajoSeed { get; set; }
-        [Required]
+
         public string DNI { get; set; }
-        [Required]
+
         public string Password { get; set; }
     }
 }

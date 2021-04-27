@@ -31,6 +31,59 @@ namespace UniversitySimulator.Data
             _connection = new SqlConnection("Data Source=DESKTOP-7VGDV0F;Initial Catalog=db_university_simulator;Integrated Security=True");
         }
 
+        public Usuario LoadUsuario(SqlDataReader dr)
+        {
+            List<object> list = new List<object>();
+            foreach (var item in dr)
+            {
+                list.Add(item);
+
+            }
+            string passDesCript = Base64Decode(list[0].ToString()); ;
+            Usuario usuario = new Usuario()
+            {
+                Legajo = Int32.Parse(list[1].ToString()),
+                DNI = list[2].ToString(),
+                Nombre = list[3].ToString(),
+                Apellido = list[4].ToString(),
+                Email = list[5].ToString(),                           
+                Password = passDesCript,
+            };
+            return usuario;
+        }
+
+        public Usuario ConsultarUsuario(string email, string password)
+        {
+            List<string> list = new List<string>();
+            Usuario usuario = new Usuario();
+            password = Base64Encode(password);
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Usuarios " +
+                    " WHERE pass=@password AND email=@email");
+                cmd.Parameters.AddWithValue("@password", password);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.CommandType = CommandType.Text;
+                _connection.Open();
+                cmd.Connection = _connection;
+                SqlDataReader dr1 = cmd.ExecuteReader();
+                if (dr1.HasRows)
+                {
+                    usuario = LoadUsuario(dr1);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally 
+            {
+                if (_connection.State == System.Data.ConnectionState.Open)
+                    _connection.Close();
+            }
+            return usuario;
+        }
+
         public bool ValidateUser(string dni, string email)
         {
             bool rtado = true;
@@ -79,15 +132,14 @@ namespace UniversitySimulator.Data
             pass = Base64Encode(pass);
             try
             {
-                SqlCommand cmd = new SqlCommand("INSERT INTO Usuarios(legajo, dni, nombre, apellido, email, pass, id_rol)" +
-                " VALUES (@legajo, @dni, @nombre, @apellido, @email, @pass, @id_rol)");
+                SqlCommand cmd = new SqlCommand("INSERT INTO Usuarios(legajo, dni, nombre, apellido, email, pass)" +
+                " VALUES (@legajo, @dni, @nombre, @apellido, @email, @pass)");
                 cmd.Parameters.AddWithValue("@legajo", legajo);
                 cmd.Parameters.AddWithValue("@dni", dni);
                 cmd.Parameters.AddWithValue("@nombre", nombre);
                 cmd.Parameters.AddWithValue("@apellido", apellido);
                 cmd.Parameters.AddWithValue("@email", email);
                 cmd.Parameters.AddWithValue("@pass", pass);
-                cmd.Parameters.AddWithValue("@id_rol", 2);
                 cmd.CommandType = CommandType.Text;
                 _connection.Open();
                 cmd.Connection = _connection;
