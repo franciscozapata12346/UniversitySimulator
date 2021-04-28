@@ -73,7 +73,6 @@ E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\Univer
 E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\UniversitySimulator.pdb
 E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\UniversitySimulator.genruntimeconfig.cache
 E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\UniversitySimulator.csproj.CopyComplete
-E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\Razor\Pages\Home\Index.cshtml.g.cs
 E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\Razor\Pages\Register\Register.cshtml.g.cs
 E:\Github\UniversitySimulator\UniversitySimulator\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 E:\Github\UniversitySimulator\UniversitySimulator\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
@@ -193,3 +192,8 @@ E:\Github\UniversitySimulator\UniversitySimulator\bin\Debug\netcoreapp3.1\runtim
 E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\Razor\Pages\Home\Principal.cshtml.g.cs
 E:\Github\UniversitySimulator\UniversitySimulator\bin\Debug\netcoreapp3.1\Renci.SshNet.dll
 E:\Github\UniversitySimulator\UniversitySimulator\bin\Debug\netcoreapp3.1\SshNet.Security.Cryptography.dll
+E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\Razor\Pages\Home\Shared\_Layout.cshtml.g.cs
+E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\Razor\Pages\Home\Shared\_ValidationScriptsPartial.cshtml.g.cs
+E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\Razor\Pages\Home\_ViewImports.cshtml.g.cs
+E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\Razor\Pages\Home\_ViewStart.cshtml.g.cs
+E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\Razor\Pages\Register\Index.cshtml.g.cs

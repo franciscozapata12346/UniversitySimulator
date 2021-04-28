@@ -47,7 +47,8 @@ namespace UniversitySimulator.Pages
             Usuario usuario = usuarioService.ConsultarUsuario(Email, Password);
             if ( usuario.DNI != null) 
             {
-               return RedirectToPage("Principal", usuario);
+                ViewData["pagina"] = "principal";
+               return RedirectToPage("/Home/Principal", usuario);
             }
             else
             {

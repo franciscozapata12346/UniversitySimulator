@@ -33,28 +33,27 @@ namespace UniversitySimulator.Data
 
         public Usuario LoadUsuario(SqlDataReader dr)
         {
-            List<object> list = new List<object>();
-            foreach (var item in dr)
-            {
-                list.Add(item);
+            //List<object> list = new List<object>();
+            //foreach (var item in dr)
+            //{
+            //    list.Add(item);
 
-            }
-            string passDesCript = Base64Decode(list[0].ToString()); ;
+            //}
+            
             Usuario usuario = new Usuario()
             {
-                Legajo = Int32.Parse(list[1].ToString()),
-                DNI = list[2].ToString(),
-                Nombre = list[3].ToString(),
-                Apellido = list[4].ToString(),
-                Email = list[5].ToString(),                           
-                Password = passDesCript,
+                Legajo = Int32.Parse(dr["legajo"].ToString()),
+                DNI = dr["dni"].ToString(),
+                Nombre = dr["nombre"].ToString(),
+                Apellido = dr["apellido"].ToString(),
+                Email = dr["email"].ToString(),                           
+                Password = Base64Decode(dr["pass"].ToString())
             };
             return usuario;
         }
 
         public Usuario ConsultarUsuario(string email, string password)
         {
-            List<string> list = new List<string>();
             Usuario usuario = new Usuario();
             password = Base64Encode(password);
             try
@@ -67,10 +66,14 @@ namespace UniversitySimulator.Data
                 _connection.Open();
                 cmd.Connection = _connection;
                 SqlDataReader dr1 = cmd.ExecuteReader();
-                if (dr1.HasRows)
+                while (dr1.Read())
                 {
                     usuario = LoadUsuario(dr1);
                 }
+                //if (dr1.HasRows)
+                //{
+                //    usuario = LoadUsuario(dr1);
+                //}
             }
             catch (Exception ex)
             {
