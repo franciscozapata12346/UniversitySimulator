@@ -35,7 +35,7 @@
                         <a class="nav-link" href="#">Ver calificaciones</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" 
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true"
                            aria-expanded="false">Trámites</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown03">
                             <a class="dropdown-item" href="#">Certificados</a>
@@ -45,27 +45,15 @@
                         </div>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-md-0">
-                    @if (Html.DisplayFor(m => m.) != null)
-                    {
-                        if (DateTime.Now.Hour >= 0 && DateTime.Now.Hour <= 12)
-                        {
-                            <label style="color:white;" class="" type="text">
-                                Buenos días @Html.DisplayFor(m => m.)
-                            </label>
-                        }
-                        if (DateTime.Now.Hour >= 13 && DateTime.Now.Hour < 8)
-                        {
-                            <label style="color:white;" class="" type="text">Buenos días Usuario</label>
-                        }
-                        if (DateTime.Now.Hour >= 8 && DateTime.Now.Hour < 24)
-                        {
-                            <label style="color:white;" class="" type="text">Buenos días Usuario</label>
-                        }
-                    }
 
-                    <label style="color:white;" class="" type="text">Buenos días Usuario</label>
-                </form>
+                
+
+
+                <div class="">
+                        <button class="btn-danger" onclick="CerrarSesion()">
+                            Cerrar Sesion
+                        </button>
+                    </div>
             </div>
         </nav>
     </header>

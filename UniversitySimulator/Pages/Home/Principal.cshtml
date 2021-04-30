@@ -4,6 +4,41 @@
 }
 
 
+
+
+<form class="form-inline my-2 my-md-0">
+    @if (Html.DisplayFor(m => m.NombreUsuario) != null)
+    {
+        if (DateTime.Now.Hour >= 0 && DateTime.Now.Hour <= 12)
+        {
+            <div class="text-center">
+                <h6>
+                    Buenos días @Html.DisplayFor(m => m.NombreUsuario)
+                </h6>
+            </div>
+
+        }
+        if (DateTime.Now.Hour >= 13 && DateTime.Now.Hour < 20)
+        {
+            <div class="text-center">
+                <h6>
+                    Buenas tardes @Html.DisplayFor(m => m.NombreUsuario)
+                </h6>
+            </div>
+        }
+        if (DateTime.Now.Hour >= 20 && DateTime.Now.Hour < 24)
+        {
+            <div class="text-center">
+                <h6>
+                    Buenas noches @Html.DisplayFor(m => m.NombreUsuario)
+                </h6>
+            </div>
+        }
+    }
+
+
+</form>
+
 <div class="text-center container">
     <h1>Noticias</h1>
     <p class="lead text-muted">
@@ -23,7 +58,7 @@
                 </p>
             </div>
             <div class="col-auto d-none d-lg-block">
-                <img src="~/images/ok.png" width="200" height="250"/>
+                <img src="~/images/ok.png" width="200" height="250" />
             </div>
         </div>
     </div>
@@ -33,7 +68,7 @@
                 <h3 class="mb-0">Comienza University Simulator</h3>
                 <div class="mb-1 text-muted">1 de Febrero</div>
                 <p class="mb-auto">
-                    Con el sorpresivo cierre de McAfee, el desarrollador Francisco Zapata ha comenzado a realizar el sitio web de 
+                    Con el sorpresivo cierre de McAfee, el desarrollador Francisco Zapata ha comenzado a realizar el sitio web de
                     nuestra Universidad, esperamos que pueda terminarlo pronto!
                 </p>
             </div>

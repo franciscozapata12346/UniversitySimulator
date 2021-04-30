@@ -47,7 +47,6 @@ E:\Github\UniversitySimulator\UniversitySimulator\bin\Debug\netcoreapp3.1\Univer
 E:\Github\UniversitySimulator\UniversitySimulator\bin\Debug\netcoreapp3.1\UniversitySimulator.pdb
 E:\Github\UniversitySimulator\UniversitySimulator\bin\Debug\netcoreapp3.1\UniversitySimulator.Views.dll
 E:\Github\UniversitySimulator\UniversitySimulator\bin\Debug\netcoreapp3.1\UniversitySimulator.Views.pdb
-E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\UniversitySimulator.csprojAssemblyReference.cache
 E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\UniversitySimulator.AssemblyInfoInputs.cache
 E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\UniversitySimulator.AssemblyInfo.cs
 E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\UniversitySimulator.csproj.CoreCompileInputs.cache
@@ -197,3 +196,4 @@ E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\Razor\
 E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\Razor\Pages\Home\_ViewImports.cshtml.g.cs
 E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\Razor\Pages\Home\_ViewStart.cshtml.g.cs
 E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\Razor\Pages\Register\Index.cshtml.g.cs
+E:\Github\UniversitySimulator\UniversitySimulator\obj\Debug\netcoreapp3.1\UniversitySimulator.csprojAssemblyReference.cache

@@ -16,7 +16,7 @@ namespace UniversitySimulator.Pages.Home
         public IActionResult OnGet(Usuario usuario)
         {
             if (usuario.DNI == null)
-            {               
+            {
                 return RedirectToPage("../Register/Index");
             }
             NombreUsuario = usuario.Nombre;

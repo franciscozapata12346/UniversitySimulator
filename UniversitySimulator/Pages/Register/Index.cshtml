@@ -27,11 +27,11 @@
                class="form-control" maxlength="50" />
         <span asp-validation-for="Password" class="text-danger"></span>
         <span class="text-danger">@Html.DisplayFor(m => m.ErrorServidor)</span>
-        <div class="checkbox mb-3">
+        @*<div class="checkbox mb-3">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
-        </div>
+        </div>*@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesion</button>
         <a href="../Register/Register">No tienes una cuenta? Registrate aquí</a>
 
